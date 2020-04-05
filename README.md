@@ -1,6 +1,6 @@
 # Amazon_Wishlist_Aux_Price.user.js
 
-<!-- Time-stamp: "2020-04-05T07:16:27Z" -->
+<!-- Time-stamp: "2020-04-05T07:20:25Z" -->
 
 Amazon.co.jp のウィッシュリスト(ほしい物リスト)でマーケットプレイスの
 価格を復活させる Greasemonkey スクリプト。
@@ -10,9 +10,8 @@ Amazon.co.jp のウィッシュリスト(ほしい物リスト)でマーケッ�
 
 更新情報は↓で。
 
-《JRF のひとこと - Amazon の仕様変更で、ウィッシュリスト(ほしい物リス
-ト)でマーケットプレイ...》
-http://jrf.cocolog-nifty.com/statuses/2020/03/post-9e60d0.html
+[《JRF のひとこと - Amazon の仕様変更で、ウィッシュリスト(ほしい物リス
+ト)でマーケットプレイ...》](http://jrf.cocolog-nifty.com/statuses/2020/03/post-9e60d0.html)
 
 
 ## ライセンス
