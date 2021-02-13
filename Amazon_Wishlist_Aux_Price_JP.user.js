@@ -1,12 +1,13 @@
-// Time-stamp: <2020-04-01T04:22:33Z>
+// Time-stamp: <2021-02-13T13:54:21Z>
 // ==UserScript==
 // @name           Amazon Wishlist Aux Price JP
 // @description	   Add marketplace price to wishlist in amazon.co.jp.
 // @namespace      http://jrf.cocolog-nifty.com/
 // @include        https://www.amazon.co.jp/hz/wishlist/ls/*
+// @include        https://www.amazon.co.jp/hz/wishlist/genericitemsPage/*
 // @include        https://www.amazon.co.jp/registry/wishlist/*
 // @include        https://www.amazon.co.jp/gp/registry/wishlist*
-// @version        0.02
+// @version        0.03
 // ==/UserScript==
 
 var TIMEOUT_ID = null;
