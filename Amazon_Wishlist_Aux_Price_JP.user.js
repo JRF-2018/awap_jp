@@ -1,4 +1,4 @@
-// Time-stamp: <2021-02-13T13:54:21Z>
+// Time-stamp: <2022-01-09T17:47:14Z>
 // ==UserScript==
 // @name           Amazon Wishlist Aux Price JP
 // @description	   Add marketplace price to wishlist in amazon.co.jp.
@@ -7,7 +7,7 @@
 // @include        https://www.amazon.co.jp/hz/wishlist/genericitemsPage/*
 // @include        https://www.amazon.co.jp/registry/wishlist/*
 // @include        https://www.amazon.co.jp/gp/registry/wishlist*
-// @version        0.03
+// @version        0.04
 // ==/UserScript==
 
 var TIMEOUT_ID = null;
@@ -23,6 +23,9 @@ function inScreen (x) {
 
 function getASINfromLI (li) {
   let h3 = li.getElementsByTagName('h3')[0];
+  if (! h3) {
+    h3 = li.getElementsByTagName('h2')[0];
+  }
   if (! h3) return null;
   let a = h3.getElementsByTagName('a')[0];
   if (! a) return null;
