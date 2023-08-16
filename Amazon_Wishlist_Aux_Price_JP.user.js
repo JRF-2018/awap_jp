@@ -1,4 +1,4 @@
-// Time-stamp: <2023-02-17T09:02:34Z>
+// Time-stamp: <2023-08-16T08:48:20Z>
 // ==UserScript==
 // @name           Amazon Wishlist Aux Price JP
 // @description	   Add marketplace price to wishlist in amazon.co.jp.
@@ -7,7 +7,7 @@
 // @include        https://www.amazon.co.jp/hz/wishlist/genericitemsPage/*
 // @include        https://www.amazon.co.jp/registry/wishlist/*
 // @include        https://www.amazon.co.jp/gp/registry/wishlist*
-// @version        0.05
+// @version        0.06
 // ==/UserScript==
 
 var TIMEOUT_ID = null;
@@ -119,6 +119,43 @@ function parsePrice(dom, asin, target) {
     x = dom.getElementById("buyNew_noncbb");
     if (x) {
       mprice = '<span class="a-color-price">' + x.textContent + '</span>';
+    }
+  }
+  
+  if (! mprice) {
+    x = dom.getElementById("rightCol");
+    if (x) {
+      let l = x.getElementsByClassName("olp-link");
+      for (let i = 0; i < l.length; i++) {       
+        let y = l[i];
+        let z = y.getElementsByClassName("olp-from")[0];
+        if (! z) {
+          continue;
+        }
+        if (y.innerHTML.match(/<span\s+class=\"olp-from\"\s*>\s*の\s*<\/span>\s*(￥[01-9\,]+)/)) {
+          mprice = '<span class="a-color-price">' + RegExp.$1 + '</span>';
+          break;
+        } else if (y.innerHTML.match(/(￥[01-9\,]+)\s*<span\s+class=\"olp-from\"\s*>\s*から\s*<\/span>/)) {
+          mprice = '<span class="a-color-price">' + RegExp.$1 + '</span>';
+          break;
+        } else {
+          mprice = '<span class="a-color-price">' + z.textContent + '</span>';
+          break;
+        }
+      }
+    }
+  }
+  
+  if (! mprice) {
+    x = dom.getElementById("rightCol");
+    if (x) {
+      let y = x.getElementsByClassName("olp-text-box")[0];
+      if (y) {
+        let z = y.getElementsByClassName("a-offscreen")[0];
+	if (z) {
+          mprice = '<span class="a-color-price">' + z.textContent + '</span>';
+	}
+      }
     }
   }
   
