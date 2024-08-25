@@ -1,9 +1,10 @@
 # Amazon_Wishlist_Aux_Price.user.js
 
-<!-- Time-stamp: "2024-08-25T12:24:36Z" -->
+<!-- Time-stamp: "2024-08-25T12:32:40Z" -->
 
-Amazon.co.jp のウィッシュリスト(ほしい物リスト)で一時期消えてたマーケッ
-トプレイスの価格を復活させる Greasemonkey スクリプト。
+Amazon.co.jp のウィッシュリスト(ほしい物リスト)で一時期はあったのに消
+えてしまったマーケットプレイスの価格を復活させる Greasemonkey スクリプ
+ト。
 
 ポイントの表示がウリかも。
 
