@@ -1,13 +1,17 @@
 # Amazon_Wishlist_Aux_Price.user.js
 
-<!-- Time-stamp: "2023-02-17T15:41:18Z" -->
+<!-- Time-stamp: "2024-08-25T12:24:36Z" -->
 
 Amazon.co.jp のウィッシュリスト(ほしい物リスト)で一時期消えてたマーケッ
 トプレイスの価格を復活させる Greasemonkey スクリプト。
 
-デフォルトで復活している今では、ポイントの表示がウリになるのかも。
+ポイントの表示がウリかも。
 
 「ポイント」という文字列を探したりしているので、日本語のみ対応。
+
+完全なものを期待されると裏切ることになります。ないよりマシ程度にお考え
+ください。
+
 
 ## 記事
 
@@ -24,8 +28,9 @@ http://jrf.cocolog-nifty.com/statuses/2020/03/post-9e60d0.html
 
 ## ライセンス
 
-ライセンスは本当に小さなプログラムなので、Public Domain でいいと思うが、
-それが気になる方は (New) BSD License として扱っていただければと思う。
+ライセンスは本当に小さなプログラムなので、Public Domain でいいと思いま
+すが、それが気になる方は (New) BSD License または MIT License として扱っ
+ていただければと思います。
 
 ---
 (This file is written in Japanese/UTF8.)
