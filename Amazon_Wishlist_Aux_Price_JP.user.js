@@ -1,4 +1,4 @@
-// Time-stamp: <2024-08-25T12:21:07Z>
+// Time-stamp: <2024-09-12T02:35:57Z>
 // ==UserScript==
 // @name           Amazon Wishlist Aux Price JP
 // @description	   Add marketplace price to wishlist in amazon.co.jp.
@@ -7,7 +7,7 @@
 // @include        https://www.amazon.co.jp/hz/wishlist/genericitemsPage/*
 // @include        https://www.amazon.co.jp/registry/wishlist/*
 // @include        https://www.amazon.co.jp/gp/registry/wishlist*
-// @version        0.07
+// @version        0.08
 // ==/UserScript==
 
 var TIMEOUT_ID = null;
@@ -43,10 +43,14 @@ function parsePrice(dom, asin, target) {
   if (! x) {
     console.log("awap: No buybox " + asin);
   } else {
-    let l = x.getElementsByClassName("a-row");
+    let l = Array.from(x.getElementsByClassName("a-row"));
+    l = l.concat(Array.from(x.getElementsByClassName("a-section")));
+    if (l.length == 0) {
+      console.log("awap: No a-row or a-section");
+    }
     for (let i = 0; i < l.length; i++) {
       let y = l[i];
-      if (y.innerHTML.match(/>\s*(?:獲得(?:予定)?)?ポイント\s*[\:：]\s*(?:<\/span>(?:\s*<\/div>\s*<div[^>]+>)?)?\s*<span\s+[^>]*class=\"a-color-price[^\"]*\"\s*[^>]*>([^<]+)/)) {
+      if (y.innerHTML.match(/>\s*(?:獲得(?:予定)?)?ポイント\s*[\:：]\s*(?:<\/span>(?:\s*<\/(?:div|td)>\s*<(?:div|td)[^>]+>)?)?\s*<span\s+[^>]*class=\"a-color-price[^\"]*\"\s*[^>]*>([^<]+)/s)) {
 	pt = RegExp.$1;
 	break;
       }
