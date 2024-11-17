@@ -1,6 +1,6 @@
 # Amazon_Wishlist_Aux_Price.user.js
 
-<!-- Time-stamp: "2024-08-25T12:32:40Z" -->
+<!-- Time-stamp: "2024-11-17T08:14:07Z" -->
 
 Amazon.co.jp のウィッシュリスト(ほしい物リスト)で一時期はあったのに消
 えてしまったマーケットプレイスの価格を復活させる Greasemonkey スクリプ
@@ -12,6 +12,15 @@ Amazon.co.jp のウィッシュリスト(ほしい物リスト)で一時期は�
 
 完全なものを期待されると裏切ることになります。ないよりマシ程度にお考え
 ください。
+
+
+## 使い方
+
+私は Firefox で使ってます。アドオンの Greasemonkey をインストール後、上の Amazon_Wishlist_Aux_Price_JP.user.js のソースを表示したところで [Raw ボタン](https://github.com/JRF-2018/awap_jp/raw/refs/heads/master/Amazon_Wishlist_Aux_Price_JP.user.js) を押してください。スクリプトのインストールができるはずです。
+
+Chrome や Edge の場合は、アドオンの Tampermonkey をインストール後、同様に Raw ボタンからインストールできるはずです。(ちゃんと動くかは確認してません。)
+
+あとは「ほしい物リスト」を表示したとき、ちょっと遅れがあって、商品にマーケットプレイスの価格などが表示されるはずです。
 
 
 ## 記事
