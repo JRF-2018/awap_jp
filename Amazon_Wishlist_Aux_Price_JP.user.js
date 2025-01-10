@@ -1,4 +1,4 @@
-// Time-stamp: <2024-09-12T02:35:57Z>
+// Time-stamp: <2025-01-10T02:12:51Z>
 // ==UserScript==
 // @name           Amazon Wishlist Aux Price JP
 // @description	   Add marketplace price to wishlist in amazon.co.jp.
@@ -7,7 +7,7 @@
 // @include        https://www.amazon.co.jp/hz/wishlist/genericitemsPage/*
 // @include        https://www.amazon.co.jp/registry/wishlist/*
 // @include        https://www.amazon.co.jp/gp/registry/wishlist*
-// @version        0.08
+// @version        0.09
 // ==/UserScript==
 
 var TIMEOUT_ID = null;
@@ -31,6 +31,16 @@ function getASINfromLI (li) {
   if (! a) return null;
   if (a.href.match(/\/(?:dp|gp\/product|exec\/obidos\/ASIN)\/([^\/\?\&]+)/)) {
     return RegExp.$1;
+  }
+  return null;
+}
+
+function getItemInfo (li) {
+  let l = li.getElementsByClassName("a-section");
+  for (let i = 0; i < l.length; i++) {
+    if (l[i].id.match(/^itemInfo_/)) {
+      return l[i];
+    }
   }
   return null;
 }
@@ -189,10 +199,15 @@ function parsePrice(dom, asin, target) {
 
 function addAwap () {
   let gitems = document.querySelectorAll("#g-items li");
+  //console.log("awap: gitems " + gitems.length);
   for (let i = 0; i < gitems.length; i++) {
     let li = gitems[i];
     let x = li.getElementsByClassName("g-item-details")[0];
-    if (x && inScreen(x)) {
+     if (! x) {
+      x = getItemInfo(li);
+    }
+    //console.log("awap: gitem-details " + x);
+   if (x && inScreen(x)) {
       let y = x.getElementsByClassName("awap-price");
       if (y[0] && y[0].classList.contains('awap-processed')) continue;
       if (y[0]) {
